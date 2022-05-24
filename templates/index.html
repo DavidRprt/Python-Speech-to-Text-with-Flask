@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Voice to Text</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+<body>
+<div id="Container">
+<nav class="navbar bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#/">Python Speech to Text recognizer</a>
+  </div>
+</nav>
+
+    <form method="post" enctype="multipart/form-data" id="form">
+
+        <div class="mb-3">
+  <label for="formFile" class="form-label">Select a .wav file</label>
+  <input class="form-control" type="file" id="formFile" name="file">
+            <input type="submit" name="transcribe" class="btn btn-primary btn-block" id="button">
+</div>
+
+
+    </form>
+
+    {% if transcript != "" %}
+    <div id="TranscriptionContainer">
+        <h2>Transcript</h2>
+        <p id="transcript">{{transcript}}</p>
+    {% endif %}
+
+    </div>
+    </div>
+
+
+</body>
+</html>
